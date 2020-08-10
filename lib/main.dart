@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -64,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(200),
                         color: Color(getHexColorFromString('#FDD148'))
-                            .withOpacity(0.4),
+                            .withOpacity(0.2),
                       ),
                     ),
                   ),
@@ -77,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(200),
                         color: Color(getHexColorFromString('#FDD148'))
-                            .withOpacity(0.5),
+                            .withOpacity(0.2),
                       ),
                     ),
                   ),
@@ -166,8 +165,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                     size: 30.0,
                                   ),
-                                  contentPadding:
-                                  EdgeInsets.only(left: 15.0, right: 15.0, top: 3.0),
+                                  contentPadding: EdgeInsets.only(
+                                      left: 15.0, right: 15.0, top: 3.0),
                                   hintText: 'Search',
                                   hintStyle: TextStyle(
                                       color: Colors.grey,
@@ -225,12 +224,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             width: MediaQuery.of(context).size.width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('assets/sofa_icon.png'),
+                                image: AssetImage('assets/wardrobe.png'),
                               ),
                             ),
                           ),
                           Text(
-                            'Sofa',
+                            'Wardrobe',
                             style: TextStyle(
                                 color: Colors.black, fontFamily: 'Quicksand'),
                           )
@@ -243,12 +242,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             width: MediaQuery.of(context).size.width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('assets/sofa_icon.png'),
+                                image: AssetImage('assets/desk.png'),
                               ),
                             ),
                           ),
                           Text(
-                            'Sofa',
+                            'Desk',
                             style: TextStyle(
                                 color: Colors.black, fontFamily: 'Quicksand'),
                           )
@@ -261,12 +260,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             width: MediaQuery.of(context).size.width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('assets/sofa_icon.png'),
+                                image: AssetImage('assets/dresser.png'),
                               ),
                             ),
                           ),
                           Text(
-                            'Sofa',
+                            'Dresser',
                             style: TextStyle(
                                 color: Colors.black, fontFamily: 'Quicksand'),
                           )
@@ -275,11 +274,80 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   )
                 ],
-              )
+              ),
+              itemCard('FinnNavian', 'assets/sofas.jpg', false),
             ],
           )
         ],
       ),
+    );
+  }
+
+  Widget itemCard(String title, String imgPath, bool isFavourite) {
+    return Padding(
+      padding:
+          EdgeInsets.only(left: 15.0, top: 15.0, right: 15.0, bottom: 15.0),
+      child: Container(
+          height: 150.0,
+          width: double.infinity,
+          color: Colors.white,
+          child: Row(
+//          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                height: 150.0,
+                width: 140.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(imgPath),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 3.0,
+              ),
+              Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontFamily: 'Quicksand',
+                          color: Colors.black,
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: 25.0),
+                      Material(
+                          elevation: isFavourite ? 0.0 : 2.0,
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            height: 40.0,
+                            width: 40.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: isFavourite
+                                  ? Colors.grey.withOpacity(0.2)
+                                  : Colors.white,
+                            ),
+                            child: Center(
+                              child: isFavourite
+                                  ? Icon(Icons.favorite_border)
+                                  : Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                    ),
+                            ),
+                          ))
+                    ],
+                  )
+                ],
+              )
+            ],
+          )),
     );
   }
 }
