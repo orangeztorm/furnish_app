@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -18,7 +19,22 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  TabController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = new TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   // Get hex color from string function
   int getHexColorFromString(String colorStr) {
     colorStr = "FF" + colorStr;
@@ -107,7 +123,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width - 130.0,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width - 130.0,
                           ),
                           Container(
                             alignment: Alignment.topRight,
@@ -203,7 +222,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           Container(
                             height: 55.0,
-                            width: MediaQuery.of(context).size.width / 4,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('assets/sofa_icon.png'),
@@ -221,7 +243,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           Container(
                             height: 55.0,
-                            width: MediaQuery.of(context).size.width / 4,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('assets/wardrobe.png'),
@@ -239,7 +264,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           Container(
                             height: 55.0,
-                            width: MediaQuery.of(context).size.width / 4,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('assets/desk.png'),
@@ -257,7 +285,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: <Widget>[
                           Container(
                             height: 55.0,
-                            width: MediaQuery.of(context).size.width / 4,
+                            width: MediaQuery
+                                .of(context)
+                                .size
+                                .width / 4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('assets/dresser.png'),
@@ -276,9 +307,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               itemCard('FinnNavian', 'assets/sofas.jpg', false),
+              itemCard('FinnNavian', 'assets/chair.jpg', true),
+              itemCard('FinnNavian', 'assets/sofa1.jpg', true),
             ],
           )
         ],
+      ),
+      bottomNavigationBar: Material(
+        color: Colors.white,
+        child: TabBar(
+            controller: controller,
+            indicatorColor: Colors.yellow,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.event_seat, color: Colors.yellow)),
+              Tab(icon: Icon(Icons.timer, color: Colors.grey)),
+              Tab(icon: Icon(Icons.shopping_cart, color: Colors.grey)),
+              Tab(icon: Icon(Icons.person_outline, color: Colors.grey)),
+            ]
+        ),
       ),
     );
   }
@@ -286,16 +332,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget itemCard(String title, String imgPath, bool isFavourite) {
     return Padding(
       padding:
-          EdgeInsets.only(left: 15.0, top: 15.0, right: 15.0, bottom: 15.0),
+      EdgeInsets.only(left: 15.0, top: 15.0, right: 15.0, bottom: 15.0),
       child: Container(
-          height: 150.0,
+          height: 160.0,
           width: double.infinity,
           color: Colors.white,
           child: Row(
 //          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
-                height: 150.0,
+                height: 160.0,
                 width: 140.0,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -337,11 +383,59 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: isFavourite
                                   ? Icon(Icons.favorite_border)
                                   : Icon(
-                                      Icons.favorite,
-                                      color: Colors.red,
-                                    ),
+                                Icons.favorite,
+                                color: Colors.red,
+                              ),
                             ),
                           ))
+                    ],
+                  ),
+                  SizedBox(height: 5.0),
+                  Container(
+                    width: 175.0,
+                    child: Text(
+                      'Scandavian small size double sofa impoerted full/Dale italia oil wax leather black',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'Quicksand',
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        height: 47.0,
+                        color: Colors.yellowAccent,
+                        child: Center(
+                          child: Text(
+                            "248",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Quicksand',
+                              fontSize: 15.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 47.0,
+                        color: Color(getHexColorFromString('#FDD148')),
+                        child: Center(
+                          child: Text(
+                            "Add to cart",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Quicksand',
+                              fontSize: 15.0,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   )
                 ],
