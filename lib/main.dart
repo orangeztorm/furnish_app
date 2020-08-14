@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furnish_app/get_hexcolor.dart';
+import 'package:furnish_app/screens/timer_Screen.dart';
 
 import 'screens/home_screen.dart';
 
@@ -21,28 +22,16 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  TabController controller;
+class _MyHomePageState extends State<MyHomePage>{
 
-  @override
-  void initState() {
-    super.initState();
-    controller = new TabController(length: 4, vsync: this);
-  }
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+    TimerScreen(),
   ];
 
   void _onItemTapped(int index) {
