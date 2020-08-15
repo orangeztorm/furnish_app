@@ -22,7 +22,7 @@ class _TimerScreenState extends State<TimerScreen> {
                   color: Color(getHexColorFromString('#FDD148')),
                 ),
                 Positioned(
-                  bottom: 50.0,
+                  bottom: 300.0,
                   right: 100.0,
                   child: Container(
                     height: 400.0,
@@ -35,7 +35,7 @@ class _TimerScreenState extends State<TimerScreen> {
                   ),
                 ),
                 Positioned(
-                  bottom: 100.0,
+                  bottom: 350.0,
                   left: 150.0,
                   child: Container(
                     height: 250.0,
