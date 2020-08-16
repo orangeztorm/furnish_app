@@ -216,31 +216,90 @@ class _TimerScreenState extends State<TimerScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            cardDetails('Pending payment', 'assets/card.png', '5'),
-                            cardDetails('To be shipped', 'assets/ship.png', '2'),
+                            cardDetails(
+                                'Pending payment', 'assets/card.png', '5'),
+                            cardDetails(
+                                'To be shipped', 'assets/ship.png', '2'),
                           ],
                         ),
                         SizedBox(height: 10.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            cardDetails('To be received', 'assets/delivery.png', '8'),
-                            cardDetails('Return / replace', 'assets/return.jpg', '0'),
+                            cardDetails(
+                                'To be received', 'assets/delivery.png', '8'),
+                            cardDetails(
+                                'Return / replace', 'assets/return.jpg', '0'),
                           ],
                         ),
-                        SizedBox(height:5.0),
+                        SizedBox(height: 5.0),
                       ],
                     ),
                   ],
                 )
               ],
-            )
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
+            listItem('Gift item', Colors.red, Icons.card_giftcard),
+            listItem('Bank card', Colors.orangeAccent, Icons.credit_card),
+            listItem('Replacement code', Colors.amberAccent, Icons.fingerprint),
+            listItem('Consulting collection', Colors.blueAccent, Icons.library_books),
+            listItem('Customer service', Colors.amberAccent[400], Icons.perm_identity),
           ],
         )
       ],
     ));
   }
 
+  Widget listItem(String title, Color buttonColor, iconButton) {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Row(
+        children: <Widget>[
+          Container(
+            height: 50.0,
+            width: 50.0,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25.0),
+                color: buttonColor.withOpacity(0.3)
+            ),
+            child: Icon(
+                iconButton,
+                color: buttonColor,
+                size: 25.0
+            ),
+          ),
+          SizedBox(width: 25.0),
+          Container(
+            width: MediaQuery
+                .of(context)
+                .size
+                .width - 100.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(title,
+                  style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 15.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                    size: 20.0
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
   Widget cardDetails(String title, String imgPath, String value) {
     return Material(
       elevation: 4.0,
@@ -269,9 +328,13 @@ class _TimerScreenState extends State<TimerScreen> {
                 width: 50.0,
               ),
             ),
-            SizedBox(height: 2.0,),
+            SizedBox(
+              height: 2.0,
+            ),
             Padding(
-              padding: EdgeInsets.only(left:15.0,),
+              padding: EdgeInsets.only(
+                left: 15.0,
+              ),
               child: Text(
                 title,
                 style: TextStyle(
@@ -281,9 +344,13 @@ class _TimerScreenState extends State<TimerScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 3.0,),
+            SizedBox(
+              height: 3.0,
+            ),
             Padding(
-              padding: EdgeInsets.only(left:15.0,),
+              padding: EdgeInsets.only(
+                left: 15.0,
+              ),
               child: Text(
                 value,
                 style: TextStyle(
