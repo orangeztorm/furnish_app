@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:furnish_app/get_hexcolor.dart';
 
 class ProductScreen extends StatefulWidget {
   @override
@@ -145,9 +145,178 @@ class _ProductScreenState extends State<ProductScreen> {
                         ))
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Text('COLOR',
+                    style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 22.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    )),
+              ),
+              SizedBox(height: 20.0),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      height: 50.0,
+                      width: 50.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: Color(getHexColorFromString('#5A5551')),
+                      ),
+                    ),
+                    SizedBox(width: 15.0),
+                    Container(
+                      height: 50.0,
+                      width: 50.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: Color(getHexColorFromString('#C3BCB5')),
+                      ),
+                    ),
+                    SizedBox(width: 15.0),
+                    Container(
+                      height: 50.0,
+                      width: 50.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: Colors.grey.withOpacity(0.6),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Text('MATERIAL',
+                    style: TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontSize: 22.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    )),
+              ),
+              SizedBox(height: 20.0),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      height: 50.0,
+                      width: 50.0,
+                      child: Icon(
+                        Icons.time_to_leave,
+                        color: Colors.grey.withOpacity(0.5),
+                        size: 30.0,
+                      ),
+                    ),
+                    Text('x30%',
+                        style: TextStyle(
+                          fontFamily: 'Quicksand',
+                          fontSize: 17.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    SizedBox(width: 10.0),
+                    Container(
+                      height: 50.0,
+                      width: 50.0,
+                      child: Icon(
+                        Icons.access_time,
+                        color: Colors.grey.withOpacity(0.5),
+                        size: 30.0,
+                      ),
+                    ),
+                    Text('x60%',
+                        style: TextStyle(
+                          fontFamily: 'Quicksand',
+                          fontSize: 17.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    SizedBox(width: 10.0),Container(
+                      height: 50.0,
+                      width: 50.0,
+                      child: Icon(
+                        Icons.monetization_on,
+                        color: Colors.grey.withOpacity(0.5),
+                        size: 30.0,
+                      ),
+                    ),
+                    Text('x20%',
+                        style: TextStyle(
+                          fontFamily: 'Quicksand',
+                          fontSize: 17.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20.0),
+              Container(
+                height: 50.0,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SizedBox(width: 10.0),
+                    InkWell(
+                      onTap: (){},
+                      child: Container(
+                        height: 50.0,
+                        width: 50.0,
+                        color: Colors.white,
+                        child: Icon(
+                          Icons.shopping_cart,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: (){},
+                      child: Container(
+                        height: 50.0,
+                        width: 50.0,
+                        color: Colors.white,
+                        child: Icon(
+                          Icons.account_box,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Color(getHexColorFromString('#FEDD59')),
+                      width: MediaQuery.of(context).size.width -130,
+                      child: Center(
+                        child: Text(
+                          'Add to cart',
+                          style: TextStyle(
+                            fontFamily: 'Quicksand',
+                            fontSize: 18.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
-          )
+          ),
+          SizedBox(height: 20.0,)
         ],
       ),
     );
