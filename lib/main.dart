@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furnish_app/get_hexcolor.dart';
+import 'package:furnish_app/screens/product_screen.dart';
 import 'package:furnish_app/screens/timer_Screen.dart';
 
 import 'screens/home_screen.dart';
@@ -29,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage>{
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    HomeScreen(),
+    ProductScreen(),
     HomeScreen(),
     TimerScreen(),
   ];
